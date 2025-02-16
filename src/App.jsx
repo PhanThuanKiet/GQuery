@@ -8,7 +8,7 @@ const App = () => {
 
   // Load lịch sử chat khi mở trang
   useEffect(() => {
-    fetch("http://localhost:5000/responses")
+    fetch("https://svgquery.onrender.com")
       .then((res) => res.json())
       .then((data) => setMessages(data.reverse())) // Đảo ngược lịch sử để câu mới nhất lên đầu
       .catch((err) => console.error(err));
