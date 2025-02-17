@@ -7,13 +7,8 @@ const App = () => {
   // State để lưu trữ lịch sử chat
   const [messages, setMessages] = useState([]);
 
-  // Lấy URL API từ biến môi trường
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
-  // Kiểm tra xem API_BASE_URL có tồn tại không
-  if (!API_BASE_URL) {
-    console.error("API_BASE_URL is not defined in environment variables.");
-  }
+  // Base URL của server đã được deploy trên Render
+  const API_BASE_URL = "https://svgquery.onrender.com";
 
   // Hàm gọi API để lấy lịch sử chat từ server
   const fetchResponses = async () => {
@@ -74,11 +69,8 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {/* Tiêu đề */}
       <h1 className="app-title">Ứng dụng Chat với Gemini AI</h1>
-      {/* Form nhập câu hỏi */}
       <AskForm onSubmit={handleAskSubmit} />
-      {/* Lịch sử chat */}
       <ChatHistory messages={messages} />
     </div>
   );
